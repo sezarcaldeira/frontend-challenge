@@ -6,7 +6,7 @@ import eslintConfigPrettier from 'eslint-config-prettier/flat'
 
 export default defineConfig([
   {
-    files: ['src/*.{js,mjs,cjs,jsx}'],
+    files: ['src/**/*.{js,mjs,cjs,jsx}'],
     plugins: { js },
     extends: ['js/recommended'],
   },
@@ -15,7 +15,7 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
   },
   {
-    files: ['src/*.{js,mjs,cjs,jsx}'],
+    files: ['src/**/*.{js,mjs,cjs,jsx}'],
     extends: [pluginReact.configs.flat.recommended],
     rules: {
       'react/react-in-jsx-scope': 'off',
