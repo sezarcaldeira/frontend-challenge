@@ -8,7 +8,7 @@ const App = () => {
         To get started, edit <code>src/App.jsx</code> and save to reload.
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
