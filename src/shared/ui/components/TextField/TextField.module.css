@@ -1,0 +1,14 @@
+@layer input {
+  .input {
+    padding: 0.5rem;
+    border-radius: var(--token-border-radius-small);
+    border: 1px solid var(--token-color-neutral-2);
+    background-color: var(--token-color-neutral-0);
+    color: var(--token-color-text-primary);
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--token-color-primary);
+    }
+  }
+}

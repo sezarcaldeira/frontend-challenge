@@ -1,0 +1,18 @@
+@layer layout {
+  .stack {
+    --layout-stack-gap: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-stack-gap);
+  }
+
+  .group {
+    --layout-group-gap: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--layout-group-gap);
+  }
+}

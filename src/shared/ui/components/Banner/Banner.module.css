@@ -1,0 +1,25 @@
+@layer banner {
+  .banner {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--token-color-neutral-1);
+    border-radius: var(--token-border-radius-small);
+  }
+
+  .banner.success {
+    background-color: var(--token-color-success-1);
+
+    & svg {
+      color: var(--token-color-success-2);
+    }
+  }
+
+  .banner.error {
+    background-color: var(--token-color-error-1);
+
+    & svg {
+      color: var(--token-color-error-2);
+    }
+  }
+}

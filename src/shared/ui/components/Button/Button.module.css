@@ -1,0 +1,43 @@
+@layer button {
+  .button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--token-border-radius-small);
+    border: none;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      outline: none;
+      transform: scale(1.05);
+    }
+  }
+
+  .button.primary {
+    background-color: var(--token-color-primary);
+    color: var(--token-color-neutral-0);
+
+    &:hover {
+      background-color: var(--token-color-primary-2);
+    }
+
+    &:disabled {
+      background-color: var(--token-color-neutral-2);
+      cursor: not-allowed;
+    }
+  }
+
+  .button.secondary {
+    background-color: transparent;
+    color: var(--token-color-primary);
+    border: solid 1px var(--token-color-primary);
+
+    &:hover {
+      background-color: var(--token-color-neutral-0);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
