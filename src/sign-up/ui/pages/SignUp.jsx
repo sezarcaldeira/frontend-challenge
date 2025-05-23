@@ -9,7 +9,7 @@ import {
   TextField,
 } from '~/shared/ui/components'
 import { useSignUpContext } from '../SignUpContext'
-import { validateStep1 } from '~/sign-up/domain/signUpValidation'
+import { validate, SignUpStep1Schema } from '~/sign-up/domain/signUpValidation'
 
 export const SignUp = () => {
   const navigate = useNavigate()
@@ -18,7 +18,10 @@ export const SignUp = () => {
   const [errors, setErrors] = useState({})
 
   const handleClickNext = () => {
-    const { isValid, validationErrors, validData } = validateStep1(localData)
+    const { isValid, validationErrors, validData } = validate(
+      SignUpStep1Schema,
+      localData
+    )
 
     if (isValid) {
       setState((data) => ({ ...data, ...validData }))

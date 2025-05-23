@@ -1,15 +1,19 @@
 import { useNavigate } from 'react-router'
 import { Button, Layout, Main, Page } from '~/shared/ui/components'
+import { SignUpSchema } from '~/sign-up/domain/signUpValidation'
 import style from './Confirmation.module.css'
 import { useSignUpContext } from '../SignUpContext'
 import {
   formatAgreement,
   formatFavoriteColor,
 } from '../presenters/SignUp.presenters'
+import { useContextValidation } from '../hooks/useContextValidation'
 
 export const Confirmation = () => {
   const navigate = useNavigate()
   const [state] = useSignUpContext()
+
+  useContextValidation({ schema: SignUpSchema, state })
 
   const handleClickBack = () => {
     navigate(-1)

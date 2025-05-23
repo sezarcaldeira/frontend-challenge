@@ -10,7 +10,12 @@ import {
   Select,
 } from '~/shared/ui/components'
 import { useSignUpContext } from '../SignUpContext'
-import { validateStep2 } from '~/sign-up/domain/signUpValidation'
+import {
+  SignUpStep1Schema,
+  SignUpStep2Schema,
+  validate,
+} from '~/sign-up/domain/signUpValidation'
+import { useContextValidation } from '../hooks/useContextValidation'
 
 export const AdditionalInfo = () => {
   const navigate = useNavigate()
@@ -18,12 +23,17 @@ export const AdditionalInfo = () => {
   const [localData, setLocalData] = useState(state)
   const [errors, setErrors] = useState({})
 
+  useContextValidation({ schema: SignUpStep1Schema, state })
+
   const handleClickBack = () => {
     navigate(-1)
   }
 
   const handleClickNext = () => {
-    const { isValid, validationErrors, validData } = validateStep2(localData)
+    const { isValid, validationErrors, validData } = validate(
+      SignUpStep2Schema,
+      localData
+    )
 
     if (isValid) {
       setState((data) => ({ ...data, ...validData }))
