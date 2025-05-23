@@ -2,16 +2,23 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Button, Layout, Main, Page, TextField } from '~/shared/ui/components'
 import { useSignUpContext } from '../SignUpContext'
+import { validateStep1 } from '~/sign-up/domain/signUpValidation'
 
 export const SignUp = () => {
   const navigate = useNavigate()
   const [state, setState] = useSignUpContext()
   const [localData, setLocalData] = useState(state)
+  const [errors, setErrors] = useState({})
 
   const handleClickNext = () => {
-    setState(localData)
+    const { isValid, validationErrors } = validateStep1(localData)
 
-    navigate('/more-info')
+    if (isValid) {
+      setState(localData)
+      navigate('/more-info')
+    } else {
+      setErrors(validationErrors)
+    }
   }
 
   const handleChange = (field) => (event) => {
@@ -38,18 +45,21 @@ export const SignUp = () => {
               value={localData.name}
               onChange={handleChange('name')}
             />
+            {errors.name && <span>{errors.name}</span>}
             <TextField
               type="text"
               placeholder="E-mail"
               value={localData.email}
               onChange={handleChange('email')}
             />
+            {errors.email && <span>{errors.email}</span>}
             <TextField
               type="password"
               placeholder="Password"
               value={localData.password}
               onChange={handleChange('password')}
             />
+            {errors.password && <span>{errors.password}</span>}
           </Layout.Stack>
         </Main.Content>
         <Main.Footer>

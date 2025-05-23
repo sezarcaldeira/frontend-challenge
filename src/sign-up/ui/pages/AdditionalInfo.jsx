@@ -9,20 +9,27 @@ import {
   Select,
 } from '~/shared/ui/components'
 import { useSignUpContext } from '../SignUpContext'
+import { validateStep2 } from '~/sign-up/domain/signUpValidation'
 
 export const AdditionalInfo = () => {
   const navigate = useNavigate()
   const [state, setState] = useSignUpContext()
   const [localData, setLocalData] = useState(state)
+  const [errors, setErrors] = useState({})
 
   const handleClickBack = () => {
     navigate(-1)
   }
 
   const handleClickNext = () => {
-    setState(localData)
+    const { isValid, validationErrors } = validateStep2(localData)
 
-    navigate('/confirmation')
+    if (isValid) {
+      setState(localData)
+      navigate('/confirmation')
+    } else {
+      setErrors(validationErrors)
+    }
   }
 
   const handleChangeColor = (event) => {
@@ -61,6 +68,7 @@ export const AdditionalInfo = () => {
               <Select.Option value="red">Red</Select.Option>
               <Select.Option value="green">Green</Select.Option>
             </Select>
+            {errors.color && <span>{errors.color}</span>}
             <Layout.Group>
               <Checkbox
                 checked={localData.terms}
@@ -73,6 +81,7 @@ export const AdditionalInfo = () => {
                 </Link>
               </span>
             </Layout.Group>
+            {errors.terms && <span>{errors.terms}</span>}
           </Layout.Stack>
         </Main.Content>
         <Main.Footer>
