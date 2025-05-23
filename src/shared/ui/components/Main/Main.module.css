@@ -1,18 +1,24 @@
 @layer main {
   .main {
+    display: flex;
+    flex-direction: column;
     background-color: var(--token-color-neutral-0);
     width: 100%;
+    height: 100%;
     border-radius: var(--token-border-radius-small);
     box-shadow: 0 4px 4px rgba(87, 100, 126, 0.21);
 
     @media screen and (min-width: 568px) {
       width: 400px;
+      height: auto;
     }
   }
 
   .content {
     padding: 1.5rem;
     display: flex;
+    flex: 1;
+    align-items: flex-start;
   }
 
   .header {

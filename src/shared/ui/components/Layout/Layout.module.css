@@ -3,6 +3,7 @@
     --layout-stack-gap: 1rem;
 
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: var(--layout-stack-gap);
   }

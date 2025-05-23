@@ -1,11 +1,13 @@
 @layer page {
   .page {
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     padding: 1rem;
 
     @media screen and (min-width: 568px) {
-      padding-block-start: 2rem;
+      padding-block: 2rem;
     }
   }
 }
