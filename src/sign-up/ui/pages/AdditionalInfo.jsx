@@ -27,8 +27,7 @@ export const AdditionalInfo = () => {
         </Main.Header>
         <Main.Content>
           <Layout.Stack>
-            <Select>
-              <Select.Option value="">Select your favorite color</Select.Option>
+            <Select placeholder="Select your favorite color">
               <Select.Option value="blue">Blue</Select.Option>
               <Select.Option value="red">Red</Select.Option>
               <Select.Option value="green">Green</Select.Option>

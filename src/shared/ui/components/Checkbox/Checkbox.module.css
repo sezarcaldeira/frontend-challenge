@@ -38,6 +38,10 @@
       background-color: var(--token-color-primary-2);
     }
 
+    & input:focus:not(:disabled) ~ span {
+      transform: scale(1.05);
+    }
+
     & input:checked ~ span {
       background-color: var(--token-color-primary);
     }

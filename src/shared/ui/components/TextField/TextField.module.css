@@ -6,9 +6,17 @@
     background-color: var(--token-color-neutral-0);
     color: var(--token-color-text-primary);
 
+    &:hover {
+      outline: 1px solid var(--token-color-primary);
+    }
+
     &:focus {
       outline: none;
       border: 1px solid var(--token-color-primary);
+    }
+
+    &::placeholder {
+      color: var(--token-color-text-placeholder);
     }
   }
 }
