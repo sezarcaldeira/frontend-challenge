@@ -4,6 +4,7 @@ import { AdditionalInfo } from './pages/AdditionalInfo'
 import { Confirmation } from './pages/Confirmation'
 import { Success } from './pages/Success'
 import { SignUpError } from './pages/SignUpError'
+import { TermsAndConditions } from './pages/TermsAndConditions'
 
 export const SignUpRoutes = () => {
   return (
@@ -13,6 +14,7 @@ export const SignUpRoutes = () => {
       <Route path="/confirmation" element={<Confirmation />} />
       <Route path="/success" element={<Success />} />
       <Route path="/error" element={<SignUpError />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
     </Routes>
   )
 }
