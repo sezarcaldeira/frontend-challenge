@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import {
   Button,
@@ -7,16 +8,39 @@ import {
   Page,
   Select,
 } from '~/shared/ui/components'
+import { useSignUpContext } from '../SignUpContext'
 
 export const AdditionalInfo = () => {
   const navigate = useNavigate()
+  const [state, setState] = useSignUpContext()
+  const [localData, setLocalData] = useState(state)
 
   const handleClickBack = () => {
     navigate(-1)
   }
 
   const handleClickNext = () => {
+    setState(localData)
+
     navigate('/confirmation')
+  }
+
+  const handleChangeColor = (event) => {
+    const { value } = event.target
+
+    setLocalData((prev) => ({
+      ...prev,
+      color: value,
+    }))
+  }
+
+  const handleCheckboxChange = (event) => {
+    const { checked } = event.target
+
+    setLocalData((prev) => ({
+      ...prev,
+      terms: checked,
+    }))
   }
 
   return (
@@ -27,13 +51,21 @@ export const AdditionalInfo = () => {
         </Main.Header>
         <Main.Content>
           <Layout.Stack>
-            <Select placeholder="Select your favorite color">
+            <Select
+              autoFocus
+              placeholder="Select your favorite color"
+              value={localData.color}
+              onChange={handleChangeColor}
+            >
               <Select.Option value="blue">Blue</Select.Option>
               <Select.Option value="red">Red</Select.Option>
               <Select.Option value="green">Green</Select.Option>
             </Select>
             <Layout.Group>
-              <Checkbox />
+              <Checkbox
+                checked={localData.terms}
+                onChange={handleCheckboxChange}
+              />
               <span>
                 I agree to{' '}
                 <Link to="/terms-and-conditions" target="_blank">

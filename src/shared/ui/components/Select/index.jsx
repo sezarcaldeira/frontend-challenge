@@ -8,7 +8,6 @@ export const Select = ({ className, placeholder, children, ...props }) => {
     <select
       aria-label={placeholder}
       className={clsx(className, inputStyle.input, style.select)}
-      defaultValue=""
       required
       {...props}
     >

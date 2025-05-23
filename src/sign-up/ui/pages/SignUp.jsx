@@ -1,11 +1,26 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Button, Layout, Main, Page, TextField } from '~/shared/ui/components'
+import { useSignUpContext } from '../SignUpContext'
 
 export const SignUp = () => {
   const navigate = useNavigate()
+  const [state, setState] = useSignUpContext()
+  const [localData, setLocalData] = useState(state)
 
   const handleClickNext = () => {
+    setState(localData)
+
     navigate('/more-info')
+  }
+
+  const handleChange = (field) => (event) => {
+    const { value } = event.target
+
+    setLocalData((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
   }
 
   return (
@@ -16,9 +31,25 @@ export const SignUp = () => {
         </Main.Header>
         <Main.Content>
           <Layout.Stack>
-            <TextField type="text" placeholder="First Name" />
-            <TextField type="text" placeholder="E-mail" />
-            <TextField type="password" placeholder="Password" />
+            <TextField
+              autoFocus
+              type="text"
+              placeholder="First Name"
+              value={localData.name}
+              onChange={handleChange('name')}
+            />
+            <TextField
+              type="text"
+              placeholder="E-mail"
+              value={localData.email}
+              onChange={handleChange('email')}
+            />
+            <TextField
+              type="password"
+              placeholder="Password"
+              value={localData.password}
+              onChange={handleChange('password')}
+            />
           </Layout.Stack>
         </Main.Content>
         <Main.Footer>

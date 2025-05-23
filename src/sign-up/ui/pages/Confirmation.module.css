@@ -7,9 +7,6 @@
   list-style: circle inside;
 }
 
-.header {
-  padding: 1.5rem;
-  display: flex;
-  justify-content: center;
-  border-bottom: solid 1px var(--token-color-neutral-2);
+.info {
+  word-wrap: break-word;
 }
