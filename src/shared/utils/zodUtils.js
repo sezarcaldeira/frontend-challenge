@@ -13,10 +13,10 @@ export const parseZodErrorToObject = (error) => {
 
 export const checkValidationResult = (result) => {
   if (result.success) {
-    return { isValid: true, validationErrors: {} }
+    return { isValid: true, validationErrors: {}, validData: result.data }
   }
 
   const validationErrors = parseZodErrorToObject(result.error)
 
-  return { isValid: false, validationErrors }
+  return { isValid: false, validationErrors, validData: {} }
 }

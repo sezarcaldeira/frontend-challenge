@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router'
 import {
   Button,
   Checkbox,
+  Field,
   Layout,
   Main,
   Page,
@@ -22,10 +23,11 @@ export const AdditionalInfo = () => {
   }
 
   const handleClickNext = () => {
-    const { isValid, validationErrors } = validateStep2(localData)
+    const { isValid, validationErrors, validData } = validateStep2(localData)
 
     if (isValid) {
-      setState(localData)
+      setState((data) => ({ ...data, ...validData }))
+
       navigate('/confirmation')
     } else {
       setErrors(validationErrors)
@@ -57,31 +59,40 @@ export const AdditionalInfo = () => {
           <h1>Additional Info</h1>
         </Main.Header>
         <Main.Content>
-          <Layout.Stack>
-            <Select
-              autoFocus
-              placeholder="Select your favorite color"
-              value={localData.color}
-              onChange={handleChangeColor}
-            >
-              <Select.Option value="blue">Blue</Select.Option>
-              <Select.Option value="red">Red</Select.Option>
-              <Select.Option value="green">Green</Select.Option>
-            </Select>
-            {errors.color && <span>{errors.color}</span>}
-            <Layout.Group>
-              <Checkbox
-                checked={localData.terms}
-                onChange={handleCheckboxChange}
-              />
-              <span>
-                I agree to{' '}
-                <Link to="/terms-and-conditions" target="_blank">
-                  terms and conditions.
-                </Link>
-              </span>
-            </Layout.Group>
-            {errors.terms && <span>{errors.terms}</span>}
+          <Layout.Stack
+            style={{
+              '--layout-stack-gap': '0.75rem',
+            }}
+          >
+            <Field error={errors.color != null}>
+              <Select
+                autoFocus
+                placeholder="Select your favorite color"
+                value={localData.color}
+                onChange={handleChangeColor}
+                error={errors.color != null}
+              >
+                <Select.Option value="blue">Blue</Select.Option>
+                <Select.Option value="red">Red</Select.Option>
+                <Select.Option value="green">Green</Select.Option>
+              </Select>
+              <Field.Hint>{errors.color}</Field.Hint>
+            </Field>
+            <Field error={errors.terms != null}>
+              <Layout.Group>
+                <Checkbox
+                  checked={localData.terms}
+                  onChange={handleCheckboxChange}
+                />
+                <span>
+                  I agree to{' '}
+                  <Link to="/terms-and-conditions" target="_blank">
+                    terms and conditions.
+                  </Link>
+                </span>
+              </Layout.Group>
+              <Field.Hint>{errors.terms}</Field.Hint>
+            </Field>
           </Layout.Stack>
         </Main.Content>
         <Main.Footer>

@@ -28,7 +28,13 @@ describe('checkValidationResult', () => {
 
     const result = checkValidationResult(successResult)
 
-    expect(result).toEqual({ isValid: true, validationErrors: {} })
+    expect(result).toEqual({
+      isValid: true,
+      validationErrors: {},
+      validData: {
+        name: 'John',
+      },
+    })
   })
 
   it('should return isValid false with validation errors when validation fails', () => {
@@ -47,6 +53,7 @@ describe('checkValidationResult', () => {
     expect(result).toEqual({
       isValid: false,
       validationErrors: mockValidationErrors,
+      validData: {},
     })
   })
 })

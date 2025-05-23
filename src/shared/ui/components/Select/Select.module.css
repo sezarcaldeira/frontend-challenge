@@ -1,9 +1,5 @@
 @layer select {
   .select:invalid {
     color: var(--token-color-text-placeholder);
-
-    & option[value=''][disabled] {
-      display: none;
-    }
   }
 }

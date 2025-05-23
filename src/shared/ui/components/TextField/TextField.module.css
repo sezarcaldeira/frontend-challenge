@@ -19,4 +19,13 @@
       color: var(--token-color-text-placeholder);
     }
   }
+
+  .input.error {
+    border: 1px solid var(--token-color-error-2);
+
+    &:hover,
+    &:focus {
+      outline: 1px solid var(--token-color-error-2);
+    }
+  }
 }

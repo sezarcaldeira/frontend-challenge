@@ -1,0 +1,14 @@
+@layer field {
+  .field {
+    --layout-stack-gap: 0.25rem;
+  }
+
+  .field.error .hint {
+    color: var(--token-color-error-2);
+  }
+
+  .hint {
+    color: var(--token-color-neutral-5);
+    font-size: 0.75rem;
+  }
+}
