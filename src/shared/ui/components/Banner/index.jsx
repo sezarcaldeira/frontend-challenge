@@ -13,7 +13,9 @@ export const Banner = ({ message, variant, className }) => {
 
   return (
     <div className={clsx(style.banner, className, style[variant])}>
-      <Icon size={32} />
+      <div>
+        <Icon size={26} />
+      </div>
       <span>{message}</span>
     </div>
   )

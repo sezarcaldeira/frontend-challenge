@@ -1,11 +1,33 @@
 import clsx from 'clsx'
 import style from './Button.module.css'
+import { Spinner } from '..'
 
-export const Button = (props) => {
+export const Button = ({
+  className,
+  variant,
+  disabled,
+  loading,
+  children,
+  ...props
+}) => {
   return (
     <button
-      className={clsx(style.button, props.className, style[props.variant])}
+      className={clsx(style.button, className, style[variant])}
       {...props}
-    ></button>
+      disabled={disabled || loading}
+    >
+      {loading ? (
+        <>
+          <Spinner
+            style={{
+              '--spinner-size': '1rem',
+            }}
+          />
+          Loading...
+        </>
+      ) : (
+        children
+      )}
+    </button>
   )
 }

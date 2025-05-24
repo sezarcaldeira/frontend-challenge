@@ -6,6 +6,10 @@
     padding: 1.5rem;
     background-color: var(--token-color-neutral-1);
     border-radius: var(--token-border-radius-small);
+
+    & div {
+      display: flex;
+    }
   }
 
   .banner.success {

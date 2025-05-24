@@ -1,7 +1,8 @@
 @layer spinner {
   .spinner {
-    width: 48px;
-    height: 48px;
+    --spinner-size: 48px;
+    width: var(--spinner-size);
+    height: var(--spinner-size);
     border-radius: 50%;
     position: relative;
     animation: rotate 1s linear infinite;
@@ -14,7 +15,7 @@
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid var(--token-color-neutral-1);
+    border: calc(var(--spinner-size) / 10) solid var(--token-color-neutral-1);
     animation: prixClipFix 2s linear infinite;
   }
   .spinner::after {
