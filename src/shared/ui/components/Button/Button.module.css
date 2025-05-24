@@ -14,7 +14,7 @@
   }
 
   .button.primary {
-    background-color: var(--token-color-primary);
+    background-color: var(--token-color-primary-1);
     color: var(--token-color-neutral-0);
 
     &:hover {
@@ -29,8 +29,8 @@
 
   .button.secondary {
     background-color: transparent;
-    color: var(--token-color-primary);
-    border: solid 1px var(--token-color-primary);
+    color: var(--token-color-primary-1);
+    border: solid 1px var(--token-color-primary-1);
 
     &:hover {
       background-color: var(--token-color-neutral-0);
@@ -38,6 +38,20 @@
 
     &:disabled {
       opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .button.danger {
+    background-color: var(--token-color-error-2);
+    color: var(--token-color-neutral-0);
+
+    &:hover {
+      background-color: var(--token-color-error-3);
+    }
+
+    &:disabled {
+      background-color: var(--token-color-neutral-2);
       cursor: not-allowed;
     }
   }

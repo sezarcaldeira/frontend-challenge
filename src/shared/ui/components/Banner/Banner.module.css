@@ -1,6 +1,7 @@
 @layer banner {
   .banner {
     display: flex;
+    align-items: center;
     gap: 1rem;
     padding: 1.5rem;
     background-color: var(--token-color-neutral-1);
@@ -9,6 +10,7 @@
 
   .banner.success {
     background-color: var(--token-color-success-1);
+    color: var(--token-color-success-2);
 
     & svg {
       color: var(--token-color-success-2);
@@ -17,6 +19,7 @@
 
   .banner.error {
     background-color: var(--token-color-error-1);
+    color: var(--token-color-error-2);
 
     & svg {
       color: var(--token-color-error-2);

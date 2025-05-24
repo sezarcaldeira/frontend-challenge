@@ -42,8 +42,16 @@
       transform: scale(1.05);
     }
 
+    & input:focus:not(:disabled:checked) ~ span {
+      background-color: var(--token-color-neutral-2);
+    }
+
+    & input:focus:checked:not(:disabled) ~ span {
+      background-color: var(--token-color-primary-2);
+    }
+
     & input:checked ~ span {
-      background-color: var(--token-color-primary);
+      background-color: var(--token-color-primary-1);
     }
 
     & input:checked:disabled ~ span {

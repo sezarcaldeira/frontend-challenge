@@ -28,7 +28,7 @@ label {
 
 a:not([class]) {
   text-decoration-skip-ink: auto;
-  color: var(--token-color-primary);
+  color: var(--token-color-primary-1);
 }
 
 input,

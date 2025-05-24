@@ -6,16 +6,21 @@
     background-color: var(--token-color-neutral-0);
     color: var(--token-color-text-primary);
 
-    &:hover {
-      outline: 1px solid var(--token-color-primary);
+    &:not(:disabled):hover {
+      outline: 1px solid var(--token-color-primary-1);
     }
 
     &:focus {
       outline: none;
-      border: 1px solid var(--token-color-primary);
+      border: 1px solid var(--token-color-primary-1);
     }
 
     &::placeholder {
+      color: var(--token-color-text-placeholder);
+    }
+
+    &:disabled {
+      background-color: var(--token-color-neutral-1);
       color: var(--token-color-text-placeholder);
     }
   }

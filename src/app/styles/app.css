@@ -10,20 +10,25 @@ body {
 }
 
 :root {
-  --token-color-primary: #0e680e;
+  --token-color-primary-1: #0e680e;
   --token-color-primary-2: #0d5b0d;
+
   --token-color-neutral-0: #fcfcff;
   --token-color-neutral-1: #e6edf2;
   --token-color-neutral-2: #d7d9e0;
   --token-color-neutral-3: #a3a3a3;
   --token-color-neutral-5: #5c6a76;
   --token-color-neutral-10: #202931;
-  --token-color-text-primary: #202931;
+
+  --token-color-text-primary: var(--token-color-neutral-10);
   --token-color-text-placeholder: var(--token-color-neutral-3);
+
   --token-color-success-1: #e3f7ef;
   --token-color-success-2: #005e47;
+
   --token-color-error-1: #ffe9e6;
-  --token-color-error-2: #ba1b1b;
+  --token-color-error-2: #9e1717;
+  --token-color-error-3: #7b1313;
 
   --token-border-radius-small: 4px;
 }
