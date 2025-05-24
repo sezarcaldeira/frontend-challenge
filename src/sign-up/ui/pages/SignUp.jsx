@@ -48,47 +48,58 @@ export const SignUp = () => {
           <h1>Sign Up</h1>
         </Main.Header>
         <Main.Content>
-          <Layout.Stack
-            style={{
-              '--layout-stack-gap': '0.75rem',
-            }}
+          <form
+            id="sign-up-form"
+            noValidate
+            onSubmit={(e) => e.preventDefault()}
           >
-            <Field error={errors.name != null}>
-              <TextField
-                autoFocus
-                type="text"
-                placeholder="First Name"
-                value={localData.name}
-                onChange={handleChange('name')}
-                error={errors.name != null}
-              />
-              <Field.Hint>{errors.name}</Field.Hint>
-            </Field>
-            <Field error={errors.email != null}>
-              <TextField
-                type="text"
-                placeholder="E-mail"
-                value={localData.email}
-                onChange={handleChange('email')}
-                error={errors.email != null}
-              />
-              <Field.Hint>{errors.email}</Field.Hint>
-            </Field>
-            <Field error={errors.password != null}>
-              <TextField
-                type="password"
-                placeholder="Password"
-                value={localData.password}
-                onChange={handleChange('password')}
-                error={errors.password != null}
-              />
-              <Field.Hint>{errors.password}</Field.Hint>
-            </Field>
-          </Layout.Stack>
+            <Layout.Stack
+              style={{
+                '--layout-stack-gap': '0.75rem',
+              }}
+            >
+              <Field error={errors.name != null}>
+                <TextField
+                  autoFocus
+                  type="text"
+                  placeholder="First Name"
+                  value={localData.name}
+                  onChange={handleChange('name')}
+                  error={errors.name != null}
+                />
+                <Field.Hint>{errors.name}</Field.Hint>
+              </Field>
+              <Field error={errors.email != null}>
+                <TextField
+                  type="text"
+                  placeholder="E-mail"
+                  value={localData.email}
+                  onChange={handleChange('email')}
+                  error={errors.email != null}
+                />
+                <Field.Hint>{errors.email}</Field.Hint>
+              </Field>
+              <Field error={errors.password != null}>
+                <TextField
+                  type="password"
+                  placeholder="Password"
+                  value={localData.password}
+                  onChange={handleChange('password')}
+                  error={errors.password != null}
+                />
+                <Field.Hint>{errors.password}</Field.Hint>
+              </Field>
+            </Layout.Stack>
+          </form>
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="primary" onClick={handleClickNext}>
+            <Button
+              type="submit"
+              form="sign-up-form"
+              variant="primary"
+              onClick={handleClickNext}
+            >
               Next
             </Button>
           </Layout.Group>

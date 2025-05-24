@@ -90,43 +90,49 @@ export const AdditionalInfo = () => {
             </Layout.Stack>
           )}
           {successLoadingColors && (
-            <Layout.Stack
-              style={{
-                '--layout-stack-gap': '0.75rem',
-              }}
+            <form
+              id="additional-info-form"
+              noValidate
+              onSubmit={(e) => e.preventDefault()}
             >
-              <Field error={errors.color != null}>
-                <Select
-                  autoFocus
-                  placeholder="Select your favorite color"
-                  value={localData.color}
-                  onChange={handleChangeColor}
-                  error={errors.color != null}
-                >
-                  {colors.data.map((color) => (
-                    <Select.Option key={color} value={color}>
-                      {formatFavoriteColor(color)}
-                    </Select.Option>
-                  ))}
-                </Select>
-                <Field.Hint>{errors.color}</Field.Hint>
-              </Field>
-              <Field error={errors.terms != null}>
-                <Layout.Group>
-                  <Checkbox
-                    checked={localData.terms}
-                    onChange={handleCheckboxChange}
-                  />
-                  <span>
-                    I agree to{' '}
-                    <Link to="/terms-and-conditions" target="_blank">
-                      terms and conditions.
-                    </Link>
-                  </span>
-                </Layout.Group>
-                <Field.Hint>{errors.terms}</Field.Hint>
-              </Field>
-            </Layout.Stack>
+              <Layout.Stack
+                style={{
+                  '--layout-stack-gap': '0.75rem',
+                }}
+              >
+                <Field error={errors.color != null}>
+                  <Select
+                    autoFocus
+                    placeholder="Select your favorite color"
+                    value={localData.color}
+                    onChange={handleChangeColor}
+                    error={errors.color != null}
+                  >
+                    {colors.data.map((color) => (
+                      <Select.Option key={color} value={color}>
+                        {formatFavoriteColor(color)}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                  <Field.Hint>{errors.color}</Field.Hint>
+                </Field>
+                <Field error={errors.terms != null}>
+                  <Layout.Group>
+                    <Checkbox
+                      checked={localData.terms}
+                      onChange={handleCheckboxChange}
+                    />
+                    <span>
+                      I agree to{' '}
+                      <Link to="/terms-and-conditions" target="_blank">
+                        terms and conditions.
+                      </Link>
+                    </span>
+                  </Layout.Group>
+                  <Field.Hint>{errors.terms}</Field.Hint>
+                </Field>
+              </Layout.Stack>
+            </form>
           )}
         </Main.Content>
         <Main.Footer>
@@ -135,6 +141,8 @@ export const AdditionalInfo = () => {
               Back
             </Button>
             <Button
+              type="submit"
+              form="additional-info-form"
               variant="primary"
               onClick={handleClickNext}
               disabled={isLoadingColors || failedLoadingColors}
