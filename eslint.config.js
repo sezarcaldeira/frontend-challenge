@@ -12,7 +12,7 @@ export default defineConfig([
     extends: ['js/recommended'],
   },
   {
-    files: ['**/*.{js,mjs,cjs,jsx}'],
+    files: ['src/**/*.{js,mjs,cjs,jsx}'],
     languageOptions: { globals: globals.browser },
   },
   {

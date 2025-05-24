@@ -39,7 +39,7 @@
     "vite": "^4.4.4"
   },
   "scripts": {
-    "start:mocks": "node server/index.js",
+    "start:mocks": "node server/index.cjs",
     "start:dev": "vite",
     "start": "run-p start:*",
     "build": "vite build",
