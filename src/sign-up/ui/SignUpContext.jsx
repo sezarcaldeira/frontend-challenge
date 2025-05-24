@@ -1,18 +1,24 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useCallback, useContext, useState } from 'react'
 
 const SignUpContext = createContext({})
 
+const initialState = {
+  name: '',
+  email: '',
+  password: '',
+  color: '',
+  terms: false,
+}
+
 export const SignUpContextProvider = ({ children }) => {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    password: '',
-    color: '',
-    terms: false,
-  })
+  const [state, setState] = useState(initialState)
+
+  const reset = useCallback(() => {
+    setState(initialState)
+  }, [])
 
   return (
-    <SignUpContext.Provider value={[state, setState]}>
+    <SignUpContext.Provider value={{ state, setState, reset }}>
       {children}
     </SignUpContext.Provider>
   )

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 import { SignUp } from './pages/SignUp'
 import { AdditionalInfo } from './pages/AdditionalInfo'
 import { Confirmation } from './pages/Confirmation'
@@ -17,6 +17,8 @@ export const SignUpRoutes = () => {
         <Route path="/success" element={<Success />} />
         <Route path="/error" element={<SignUpError />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </SignUpContextProvider>
   )

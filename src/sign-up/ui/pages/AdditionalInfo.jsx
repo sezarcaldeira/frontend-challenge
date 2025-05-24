@@ -23,7 +23,7 @@ import { useColorsQuery } from '../hooks/useColorsQuery'
 
 export const AdditionalInfo = () => {
   const navigate = useNavigate()
-  const [state, setState] = useSignUpContext()
+  const { state, setState } = useSignUpContext()
   const [localData, setLocalData] = useState(state)
   const [errors, setErrors] = useState({})
   const {

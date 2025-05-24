@@ -8,3 +8,9 @@ export const getColors = async () => {
 
   return { data }
 }
+
+export const submitSignUp = async (payload) => {
+  const { data } = await httpClient.post('/submit', payload)
+
+  return { data }
+}

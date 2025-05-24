@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router'
 import { Banner, Button, Layout, Main, Page } from '~/shared/ui/components'
+import { useSignUpContext } from '../SignUpContext'
 
 export const Success = () => {
+  const { reset } = useSignUpContext()
   const navigate = useNavigate()
 
   const handleClickReset = () => {
-    navigate('/error')
+    reset()
+    navigate('/')
   }
 
   return (
@@ -22,7 +25,7 @@ export const Success = () => {
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="secondary" onClick={handleClickReset}>
+            <Button variant="secondary" onClick={handleClickReset} autoFocus>
               Reset
             </Button>
           </Layout.Group>

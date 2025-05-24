@@ -13,7 +13,7 @@ import { validate, SignUpStep1Schema } from '~/sign-up/domain/signUpValidation'
 
 export const SignUp = () => {
   const navigate = useNavigate()
-  const [state, setState] = useSignUpContext()
+  const { state, setState } = useSignUpContext()
   const [localData, setLocalData] = useState(state)
   const [errors, setErrors] = useState({})
 

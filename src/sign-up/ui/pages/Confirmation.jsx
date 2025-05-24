@@ -8,19 +8,28 @@ import {
   formatFavoriteColor,
 } from '../presenters/SignUp.presenters'
 import { useContextValidation } from '../hooks/useContextValidation'
+import { useSubmitSignUpQuery } from '../hooks/useSubmitSignUpQuery'
 
 export const Confirmation = () => {
+  const { state } = useSignUpContext()
   const navigate = useNavigate()
-  const [state] = useSignUpContext()
+  const { mutate: submit, isPending } = useSubmitSignUpQuery()
 
   useContextValidation({ schema: SignUpSchema, state })
 
   const handleClickBack = () => {
-    navigate(-1)
+    navigate('/more-info')
   }
 
   const handleClickSubmit = () => {
-    navigate('/success')
+    submit(state, {
+      onSuccess: () => {
+        navigate('/success')
+      },
+      onError: () => {
+        navigate('/error')
+      },
+    })
   }
 
   return (
@@ -56,10 +65,19 @@ export const Confirmation = () => {
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="secondary" onClick={handleClickBack}>
+            <Button
+              variant="secondary"
+              onClick={handleClickBack}
+              disabled={isPending}
+            >
               Back
             </Button>
-            <Button variant="primary" onClick={handleClickSubmit} autoFocus>
+            <Button
+              variant="primary"
+              onClick={handleClickSubmit}
+              loading={isPending}
+              autoFocus
+            >
               Submit
             </Button>
           </Layout.Group>
