@@ -2,7 +2,7 @@
   .checkbox {
     display: block;
     height: 1rem;
-    width: 1rem;
+    padding-left: 1.5rem;
     position: relative;
     cursor: pointer;
     user-select: none;
@@ -15,7 +15,7 @@
       width: 0;
     }
 
-    & span {
+    & .icon {
       position: absolute;
       top: 0;
       left: 0;
@@ -25,40 +25,40 @@
       border-radius: var(--token-border-radius-small);
     }
 
-    &:hover input:disabled ~ span {
+    &:hover input:disabled ~ .icon {
       cursor: not-allowed;
     }
 
-    &:hover input:not(:disabled) ~ span {
+    &:hover input:not(:disabled) ~ .icon {
       background-color: var(--token-color-neutral-2);
       transform: scale(1.05);
     }
 
-    &:hover input:checked:not(:disabled) ~ span {
+    &:hover input:checked:not(:disabled) ~ .icon {
       background-color: var(--token-color-primary-2);
     }
 
-    & input:focus:not(:disabled) ~ span {
+    & input:focus:not(:disabled) ~ .icon {
       transform: scale(1.05);
     }
 
-    & input:focus:not(:disabled:checked) ~ span {
+    & input:focus:not(:disabled:checked) ~ .icon {
       background-color: var(--token-color-neutral-2);
     }
 
-    & input:focus:checked:not(:disabled) ~ span {
+    & input:focus:checked:not(:disabled) ~ .icon {
       background-color: var(--token-color-primary-2);
     }
 
-    & input:checked ~ span {
+    & input:checked ~ .icon {
       background-color: var(--token-color-primary-1);
     }
 
-    & input:checked:disabled ~ span {
+    & input:checked:disabled ~ .icon {
       background-color: var(--token-color-neutral-2);
     }
 
-    & input:checked:disabled ~ span:after {
+    & input:checked:disabled ~ .icon:after {
       left: 5px;
       top: 2px;
       width: 7px;
@@ -68,17 +68,17 @@
       transform: rotate(45deg);
     }
 
-    & span:after {
+    & .icon:after {
       content: '';
       position: absolute;
       display: none;
     }
 
-    & input:checked ~ span:after {
+    & input:checked ~ .icon:after {
       display: block;
     }
 
-    & span:after {
+    & .icon:after {
       left: 5px;
       top: 1px;
       width: 6px;

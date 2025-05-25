@@ -121,13 +121,14 @@ export const AdditionalInfo = () => {
                     <Checkbox
                       checked={localData.terms}
                       onChange={handleCheckboxChange}
-                    />
-                    <span>
-                      I agree to{' '}
-                      <Link to="/terms-and-conditions" target="_blank">
-                        terms and conditions.
-                      </Link>
-                    </span>
+                    >
+                      <>
+                        I agree to{' '}
+                        <Link to="/terms-and-conditions" target="_blank">
+                          terms and conditions.
+                        </Link>
+                      </>
+                    </Checkbox>
                   </Layout.Group>
                   <Field.Hint>{errors.terms}</Field.Hint>
                 </Field>
