@@ -4,7 +4,7 @@ import { Banner, Button, Layout, Main, Page } from '~/shared/ui/components'
 export const SignUpError = () => {
   const navigate = useNavigate()
 
-  const handleClickReset = () => {
+  const handleClickRestart = () => {
     navigate('/')
   }
 
@@ -22,8 +22,8 @@ export const SignUpError = () => {
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="danger" onClick={handleClickReset} autoFocus>
-              Reset
+            <Button variant="danger" onClick={handleClickRestart} autoFocus>
+              Restart
             </Button>
           </Layout.Group>
         </Main.Footer>

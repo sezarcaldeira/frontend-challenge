@@ -123,7 +123,7 @@ describe('SignUp', () => {
     expect(successPagePom.getHeader()).toBeInTheDocument()
     expect(successPagePom.getSuccessMessage()).toBeInTheDocument()
 
-    await successPagePom.clickResetButton()
+    await successPagePom.clickRestartButton()
 
     // Back to the first page
     expect(signUpPom.getHeader()).toBeInTheDocument()
@@ -216,7 +216,7 @@ describe('SignUp', () => {
     expect(errorPagePom.getHeader()).toBeInTheDocument()
     expect(errorPagePom.getErrorMessage()).toBeInTheDocument()
 
-    await errorPagePom.clickResetButton()
+    await errorPagePom.clickRestartButton()
 
     // Back to the first page
     expect(signUpPom.getHeader()).toBeInTheDocument()

@@ -10,8 +10,8 @@ export class SuccessPom {
     return within(this.page).getByRole('heading', { name: 'Success!' })
   }
 
-  getResetButton() {
-    return within(this.page).getByRole('button', { name: 'Reset' })
+  getRestartButton() {
+    return within(this.page).getByRole('button', { name: 'Restart' })
   }
 
   getSuccessMessage() {
@@ -20,7 +20,7 @@ export class SuccessPom {
     )
   }
 
-  async clickResetButton() {
-    await this.user.click(this.getResetButton())
+  async clickRestartButton() {
+    await this.user.click(this.getRestartButton())
   }
 }
