@@ -8,8 +8,10 @@ import {
   Page,
   TextField,
 } from '~/shared/ui/components'
-import { useSignUpContext } from '../SignUpContext'
 import { validate, SignUpStep1Schema } from '~/sign-up/domain/signUpValidation'
+import { HiddenUserMessage } from '~/shared/ui/components/HiddenUserMessage'
+import { useSignUpContext } from '../SignUpContext'
+import { ACCESSIBLE_ERROR_MESSAGE } from '../constants'
 
 export const SignUp = () => {
   const navigate = useNavigate()
@@ -66,8 +68,10 @@ export const SignUp = () => {
                   value={localData.name}
                   onChange={handleChange('name')}
                   error={errors.name != null}
+                  aria-invalid={errors.name != null}
+                  aria-describedby="name-error-hint"
                 />
-                <Field.Hint>{errors.name}</Field.Hint>
+                <Field.Hint id="name-error-hint">{errors.name}</Field.Hint>
               </Field>
               <Field error={errors.email != null}>
                 <TextField
@@ -76,8 +80,10 @@ export const SignUp = () => {
                   value={localData.email}
                   onChange={handleChange('email')}
                   error={errors.email != null}
+                  aria-invalid={errors.email != null}
+                  aria-describedby="email-error-hint"
                 />
-                <Field.Hint>{errors.email}</Field.Hint>
+                <Field.Hint id="email-error-hint">{errors.email}</Field.Hint>
               </Field>
               <Field error={errors.password != null}>
                 <TextField
@@ -86,10 +92,17 @@ export const SignUp = () => {
                   value={localData.password}
                   onChange={handleChange('password')}
                   error={errors.password != null}
+                  aria-invalid={errors.password != null}
+                  aria-describedby="password-error-hint"
                 />
-                <Field.Hint>{errors.password}</Field.Hint>
+                <Field.Hint id="password-error-hint">
+                  {errors.password}
+                </Field.Hint>
               </Field>
             </Layout.Stack>
+            <HiddenUserMessage>
+              {Object.keys(errors).length > 0 && ACCESSIBLE_ERROR_MESSAGE}
+            </HiddenUserMessage>
           </form>
         </Main.Content>
         <Main.Footer>

@@ -25,7 +25,7 @@ export const Success = () => {
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="secondary" onClick={handleClickRestart} autoFocus>
+            <Button variant="secondary" onClick={handleClickRestart}>
               Restart
             </Button>
           </Layout.Group>

@@ -12,7 +12,7 @@ export const Banner = ({ message, variant, className }) => {
   const Icon = ICON_MAP[variant] ?? FaCheckCircle
 
   return (
-    <div className={clsx(style.banner, className, style[variant])}>
+    <div role="alert" className={clsx(style.banner, className, style[variant])}>
       <div>
         <Icon size={26} />
       </div>

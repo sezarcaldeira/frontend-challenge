@@ -51,6 +51,11 @@ describe('SignUp', () => {
     expect(
       screen.getByText('Please enter between 4 and 16 characters')
     ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'The form contains errors. Please review the error messages and correct them before resubmitting.'
+      )
+    ).toBeInTheDocument()
 
     // fill the form with valid data
     await signUpPom.fillForm({
@@ -82,6 +87,11 @@ describe('SignUp', () => {
     expect(screen.getByText('Favorite color is required')).toBeInTheDocument()
     expect(
       screen.getByText('You must accept the terms and conditions')
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'The form contains errors. Please review the error messages and correct them before resubmitting.'
+      )
     ).toBeInTheDocument()
 
     // fill the form with valid data

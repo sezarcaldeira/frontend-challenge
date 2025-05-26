@@ -20,6 +20,8 @@ import {
 import { useContextValidation } from '../hooks/useContextValidation'
 import { formatFavoriteColor } from '../presenters/SignUp.presenters'
 import { useColorsQuery } from '../hooks/useColorsQuery'
+import { HiddenUserMessage } from '~/shared/ui/components/HiddenUserMessage'
+import { ACCESSIBLE_ERROR_MESSAGE } from '../constants'
 
 export const AdditionalInfo = () => {
   const navigate = useNavigate()
@@ -107,6 +109,8 @@ export const AdditionalInfo = () => {
                     value={localData.color}
                     onChange={handleChangeColor}
                     error={errors.color != null}
+                    aria-invalid={errors.color != null}
+                    aria-describedby="color-error-hint"
                   >
                     {colors.data.map((color) => (
                       <Select.Option key={color} value={color}>
@@ -114,13 +118,15 @@ export const AdditionalInfo = () => {
                       </Select.Option>
                     ))}
                   </Select>
-                  <Field.Hint>{errors.color}</Field.Hint>
+                  <Field.Hint id="color-error-hint">{errors.color}</Field.Hint>
                 </Field>
                 <Field error={errors.terms != null}>
                   <Layout.Group>
                     <Checkbox
                       checked={localData.terms}
                       onChange={handleCheckboxChange}
+                      aria-invalid={errors.terms != null}
+                      aria-describedby="terms-error-hint"
                     >
                       <>
                         I agree to{' '}
@@ -130,9 +136,12 @@ export const AdditionalInfo = () => {
                       </>
                     </Checkbox>
                   </Layout.Group>
-                  <Field.Hint>{errors.terms}</Field.Hint>
+                  <Field.Hint id="terms-error-hint">{errors.terms}</Field.Hint>
                 </Field>
               </Layout.Stack>
+              <HiddenUserMessage>
+                {Object.keys(errors).length > 0 && ACCESSIBLE_ERROR_MESSAGE}
+              </HiddenUserMessage>
             </form>
           )}
         </Main.Content>

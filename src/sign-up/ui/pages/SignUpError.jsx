@@ -22,7 +22,7 @@ export const SignUpError = () => {
         </Main.Content>
         <Main.Footer>
           <Layout.Group>
-            <Button variant="danger" onClick={handleClickRestart} autoFocus>
+            <Button variant="danger" onClick={handleClickRestart}>
               Restart
             </Button>
           </Layout.Group>

@@ -8,6 +8,8 @@
   }
 
   .hint {
+    min-height: 0.75rem;
+    line-height: 0.75rem;
     color: var(--token-color-neutral-5);
     font-size: 0.75rem;
   }
